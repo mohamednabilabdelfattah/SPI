@@ -88,4 +88,26 @@
 * SlaveDataReceived
     * this wire will contain the data received by the slave from the master.
 
+## Tracing the process
 
+1. the start = 0 so the data in the master has not been read yet
+   ![figure1](./images/image001.png)
+2. the start = 1, the master read the data will communicate with and will start the process of transmission
+   ![figure2](./images/image002.png)
+3. the start should be zero again till the data will be transmitted totally not to make collision in transmission of
+   data
+   ![figure3](./images/image003.png)
+4. In pos edge clock the MOSI and MISO will be assigned with data as explained before
+   ![figure4](./images/image004.png)
+5. In neg edge clock the master and the slave will read the data from MISO and MOSI respectively
+   ![figure5](./images/image005.png)
+6. after 8 clock cycles the MasterDataToSend will change totally by zeros and to start transmission again “start” should
+   be 1
+## Final Output
+   ![figure6](./images/image006.png)
+1. At index = 1
+   ![figure7](./images/image007.png)
+2. At index = 2
+   ![figure8](./images/image008.png)
+3. At index = 3
+   ![figure9](./images/image009.png)
